@@ -1,0 +1,19 @@
+{
+  "name": "react-native-linking-aware-component",
+  "version": "0.0.1",
+  "description": "Decorate your component with the ability to listen to Linking events, process them and receive the results as props",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rauchy/react-native-linking-aware-component.git"
+  },
+  "author": "Omer Lachish <omer@rauchy.net> (http://www.twitter.com/rauchy)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rauchy/react-native-linking-aware-component/issues"
+  },
+  "homepage": "https://github.com/rauchy/react-native-linking-aware-component#readme"
+}
