@@ -4,7 +4,14 @@ import { Linking } from 'react-native'
 export default (Component, handler) => class LinkingAwareComponent extends React.Component {
   constructor (props) {
     super(props)
-    this.handler = (event) => this.setState(handler(event))
+
+    this.handler = (event) => {
+      const additionalProps = handler(event)
+
+      if (additionalProps) {
+        this.setState(additionalProps)
+      }
+    }
   }
 
   componentDidMount () {
