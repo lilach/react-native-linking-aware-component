@@ -18,7 +18,7 @@ export default (Component, handler) => class LinkingAwareComponent extends React
     Linking.addEventListener('url', this.handler)
   }
 
-  componendWillUnmount () {
+  componentWillUnmount () {
     Linking.removeEventListener('url', this.handler)
   }
 
