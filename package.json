@@ -1,6 +1,6 @@
 {
   "name": "react-native-linking-aware-component",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Decorate your component with the ability to listen to Linking events, process them and receive the results as props",
   "main": "index.js",
   "scripts": {
