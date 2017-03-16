@@ -16,7 +16,7 @@ export default (Component, handler, options = {}) => class LinkingAwareComponent
 
   componentDidMount () {
     Linking.addEventListener('url', this.handler)
-    if (options.handleAppLaunch) {
+    if (options.includeAppLaunch) {
       Linking.getInitialURL().then((url) => {
         if (url) {
           this.handler({ url })
