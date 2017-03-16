@@ -1,7 +1,7 @@
 import React from 'react'
 import { Linking } from 'react-native'
 
-export default (Component, handler) => class LinkingAwareComponent extends React.Component {
+export default (Component, handler, options = {}) => class LinkingAwareComponent extends React.Component {
   constructor (props) {
     super(props)
 
@@ -16,6 +16,13 @@ export default (Component, handler) => class LinkingAwareComponent extends React
 
   componentDidMount () {
     Linking.addEventListener('url', this.handler)
+    if (options.handleAppLaunch) {
+      Linking.getInitialURL().then((url) => {
+        if (url) {
+          this.handler({ url })
+        }
+      })
+    }
   }
 
   componentWillUnmount () {
