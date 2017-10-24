@@ -1,9 +1,11 @@
 import React from 'react'
 import { Linking } from 'react-native'
 
-export default (Component, handler, { handleAppLaunch } = {}) => class LinkingAwareComponent extends React.Component {
+export default (Component, handler) => class LinkingAwareComponent extends React.Component {
   constructor (props) {
     super(props)
+
+    const handleAppLaunch = props.linkingAware ? props.linkingAware.handleAppLaunch : undefined
 
     this.handler = (event) => {
       const additionalProps = handler(event)
@@ -12,10 +14,7 @@ export default (Component, handler, { handleAppLaunch } = {}) => class LinkingAw
         this.setState(additionalProps)
       }
     }
-  }
 
-  componentDidMount () {
-    Linking.addEventListener('url', this.handler)
     if (handleAppLaunch) {
       Linking.getInitialURL().then((url) => {
         if (url) {
@@ -23,6 +22,10 @@ export default (Component, handler, { handleAppLaunch } = {}) => class LinkingAw
         }
       })
     }
+  }
+
+  componentDidMount () {
+    Linking.addEventListener('url', this.handler)
   }
 
   componentWillUnmount () {
